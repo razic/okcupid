@@ -5,7 +5,7 @@ require 'okcupid/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "okcupid"
-  spec.version       = Okcupid::VERSION
+  spec.version       = OkCupid::VERSION
   spec.authors       = ["Zachary Adam Kaplan"]
   spec.email         = ["razic@viralkitty.com"]
   spec.summary       = %q{OkCupid API/CLI}

@@ -1,3 +1,3 @@
-module Okcupid
+module OkCupid
   VERSION = "0.0.1"
 end
