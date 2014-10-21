@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.okcupid.com/login
+    body:
+      encoding: UTF-8
+      string: username=cute_taco&password=boyzRUL3!&okc_api=1
+    headers:
+      X-Requested-With:
+      - XMLHttpRequest
+      User-Agent:
+      - 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/39.0.2171.36 Safari/537.36'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sat, 25 Oct 2014 04:27:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dec68a9be684847b21f9ced5b04a12b9a1414211221965; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.okcupid.com; HttpOnly
+      - guest=; Expires=Fri, 24 Oct 2014 04:27:02 GMT; Path=/; Domain=okcupid.com;
+        HttpOnly
+      - override_session=0; Expires=Sun, 25 Oct 2015 04:27:02 GMT; Path=/; Domain=okcupid.com;
+        HttpOnly
+      - session=7338700133165320131%3a9454a05983a4921894; Expires=Sun, 25 Oct 2015
+        04:27:02 GMT; Path=/; Domain=okcupid.com; HttpOnly
+      Cache-Control:
+      - private
+      X-Okws-Version:
+      - OKWS/3.1.30.3
+      P3p:
+      - CP="NOI CURa ADMa DEVa TAIa OUR BUS IND UNI COM NAV INT", policyref="http://www.okcupid.com/w3c/p3p.xml"
+      X-Xss-Protection:
+      - 1; mode=block
+      Cf-Ray:
+      - 17eba8c8fe8711b3-SJC
+    body:
+      encoding: UTF-8
+      string: |
+        {"thumbnail" : "https://k2.okccdn.com/php/load_okc_image.php/images/160x160/160x160/0x90/500x590/2/1107464672473954586.webp?v=2", "screenname" : "cute_taco", "status_str" : null, "userid" : "7338700133165320131", "status" : 0}
+    http_version: 
+  recorded_at: Tue, 21 Oct 2014 20:30:26 GMT
+recorded_with: VCR 2.9.3

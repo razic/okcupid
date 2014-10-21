@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.okcupid.com/login
+    body:
+      encoding: UTF-8
+      string: username=cat_in_a_box&password=idontknow&okc_api=1
+    headers:
+      X-Requested-With:
+      - XMLHttpRequest
+      User-Agent:
+      - 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/39.0.2171.36 Safari/537.36'
+      Cookie:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sat, 25 Oct 2014 06:38:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d0c8d964b1282a8fa8219270884fff47c1414219083903; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.okcupid.com; HttpOnly
+      - guest=9258663146568426408; Expires=Sun, 25 Oct 2015 06:38:04 GMT; Path=/;
+        Domain=okcupid.com; HttpOnly
+      Cache-Control:
+      - private
+      X-Okws-Version:
+      - OKWS/3.1.30.3
+      P3p:
+      - CP="NOI CURa ADMa DEVa TAIa OUR BUS IND UNI COM NAV INT", policyref="http://www.okcupid.com/w3c/p3p.xml"
+      X-Xss-Protection:
+      - 1; mode=block
+      Cf-Ray:
+      - 17ec68b9b14d0d7f-SJC
+    body:
+      encoding: UTF-8
+      string: |
+        {"screenname" : null, "status_str" : null, "userid" : "4716854132691834096", "status" : 104}
+    http_version: 
+  recorded_at: Tue, 21 Oct 2014 22:30:09 GMT
+recorded_with: VCR 2.9.3
