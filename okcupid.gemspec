@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Okcupid::VERSION
   spec.authors       = ["Zachary Adam Kaplan"]
   spec.email         = ["razic@viralkitty.com"]
-  spec.summary       = %q{OkCupid for your Rubies!}
-  spec.description   = %q{API and CLI for OkCupid}
+  spec.summary       = %q{OkCupid API/CLI}
+  spec.description   = %q{A Ruby API/CLI for OkCupid}
   spec.homepage      = "https://github.com/razic/okcupid"
   spec.license       = "MIT"
 

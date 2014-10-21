@@ -1,6 +1,6 @@
 # OkCupid
 
-> OkCupid for your Rubies!
+> OkCupid API/CLI
 
 ## Installation
 
