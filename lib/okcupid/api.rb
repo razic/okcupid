@@ -1,5 +1,7 @@
 module OkCupid
   class API
+    include HTTParty
+
     attr_accessor :authorization_token
 
     # Public: Determines if the user is logged in.
