@@ -8,12 +8,16 @@ module OkCupid
 
     # Public: Logs a user in.
     #
+    # Sets the @cookie variable.
+    #
+    # Subsequent requests acknowledge the @cookie and authenticate the user.
+    #
     # Examples
     #
     #   login(username, password)
-    #   # => true
+    #   # => 'session: 1234;'
     #
-    # Returns an authorization_token raises an error.
+    # Returns a cookie string.
     def login(username, password)
       @cookie = request(:post, '/login',
         body: {
