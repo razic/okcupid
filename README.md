@@ -1,6 +1,6 @@
 # OkCupid
 
-> OkCupid API/CLI
+> An OkCupid API and CLI written in Ruby
 
 ## Installation
 
