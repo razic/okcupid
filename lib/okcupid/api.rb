@@ -6,7 +6,38 @@ module OkCupid
 
     base_uri 'https://www.okcupid.com'
 
-    # Public: Logs a user in.
+    def initialize(username = nil, password = nil)
+      login(username, password) if username && password
+    end
+
+    def messages(low = 1, infiniscroll = 1, folder = 1)
+      response = request(
+        :get,
+        "/messages?low=#{low}&infiniscroll=#{infiniscroll}&folder=#{folder}"
+      )
+
+      doc = Nokogiri::HTML(response)
+
+      doc.css(OkCupid::Message::CSS_SELECTOR).map do |message|
+        OkCupid::Message.new message
+      end
+    end
+
+    # Public: Determines if the user is logged in.
+    #
+    # Examples
+    #
+    #   logged_in?
+    #   # => true
+    #
+    # Returns true or false.
+    def logged_in?
+      !!@cookie
+    end
+
+    private
+
+    # Private: Logs a user in.
     #
     # Sets the @cookie variable.
     #
@@ -27,20 +58,6 @@ module OkCupid
         }
       ).headers['set-cookie'][COOKIE_REGEX]
     end
-
-    # Public: Determines if the user is logged in.
-    #
-    # Examples
-    #
-    #   logged_in?
-    #   # => true
-    #
-    # Returns true or false.
-    def logged_in?
-      !!@cookie
-    end
-
-    private
 
     # Private: Convenience method for making API requests.
     #
