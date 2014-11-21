@@ -10,6 +10,14 @@ module OkCupid
       login(username, password) if username && password
     end
 
+    # Public: Gets a list of the users messages.
+    #
+    # Examples
+    #
+    #   messages
+    #   # => [...]
+    #
+    # Returns an array.
     def messages(low = 1, infiniscroll = 1, folder = 1)
       response = request(
         :get,
