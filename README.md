@@ -21,3 +21,40 @@ Or install it yourself:
 ```bash
 gem install okcupid
 ```
+
+## Usage
+
+### Ruby
+
+#### Require It
+
+```ruby
+require 'okcupid'
+```
+
+#### API
+
+```ruby
+api = OkCupid::API.new(username, password)
+```
+
+##### Getting Messages
+
+```ruby
+api.messages(low, infiniscroll, folder)
+```
+
+Returns an array of OkCupid::Message instances.
+
+###### `low`
+
+Default is `1`. Like an index for pagination. Adjust by increments of one to
+see a new page of messages.
+
+###### `infiniscroll`
+
+Default is `1`. Not sure what this is used for.
+
+###### `folder`
+
+Default is `1` (received messages). `2` is for sent messages.
