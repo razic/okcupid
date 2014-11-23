@@ -48,6 +48,26 @@ module OkCupid
       end
     end
 
+    # Public: Gets an authentication token and memoizes it.
+    #
+    # Memoizes the @authentication_token variable.
+    #
+    # The token can be used for deleting messages and other API calls.
+    #
+    # Examples
+    #
+    #   authentication_token
+    #   # => 'abc123'
+    #
+    # Returns an authentication token string.
+    def authentication_token
+      @authentication_token ||= begin
+        response = request(:get, "/messages?low=1&infiniscroll=1&folder=1")
+
+        Nokogiri::HTML(response).css("#search_overlay_authcode").text
+      end
+    end
+
     # Public: Determines if the user is logged in.
     #
     # Examples
