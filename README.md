@@ -71,6 +71,15 @@ You can read an entire thread of messages by querying a thread by its
 `threadid`.
 
 ```ruby
-threadid = api.messages.first.threadid
-messages = api.thread(threadid)
+api.thread(threadid)
+```
+
+###### `threadid`
+
+The ID of an OkCupid messaage thread.
+
+##### Deleting an Entire Thread of Messages
+
+```ruby
+api.delete_thread(threadid)
 ```

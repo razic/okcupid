@@ -48,6 +48,20 @@ module OkCupid
       end
     end
 
+    # Public: Deletes an entire message thread.
+    #
+    # Examples
+    #
+    #   delete_thread(threadid)
+    #
+    # Returns an HTTParty Response.
+    def delete_thread(threadid)
+      request(
+        :delete,
+        "/apitun/messages/threads?access_token=#{access_token}&threadids=%5B%22#{threadid}%22%5D"
+      )
+    end
+
     # Public: Gets an authentication token and memoizes it.
     #
     # Memoizes the @authentication_token variable.
@@ -60,9 +74,9 @@ module OkCupid
     #   # => 'abc123'
     #
     # Returns an authentication token string.
-    def authentication_token
-      @authentication_token ||= begin
-        response = request(:get, "/messages?low=1&infiniscroll=1&folder=1")
+    def access_token
+      @access_token ||= begin
+        response = request(:get, "/messages")
 
         Nokogiri::HTML(response).css("#search_overlay_authcode").text
       end
