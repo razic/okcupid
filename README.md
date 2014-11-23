@@ -53,10 +53,6 @@ threadid = api.messages.first.threadid
 messages = api.thread(threadid)
 ```
 
-###### `threadid`
-
-The ID of an OkCupid message thread.
-
 ##### Deleting an Entire Thread of Messages
 
 ```ruby
