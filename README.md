@@ -41,37 +41,16 @@ api = OkCupid::API.new(username, password)
 ##### Getting Messages
 
 ```ruby
-messages = api.messages(low, infiniscroll, folder)
+page_one_messages = api.messages
+page_two_messages = api.messages(page_one_messages.length + 1)
 ```
-
-Returns an array of OkCupid::Message instances.
-
-###### `low`
-
-Default is `1`. Like an index for pagination. Adjust by increments of one to
-see a new page of messages.
-
-###### `infiniscroll`
-
-Default is `1`. Not sure what this is used for.
-
-###### `folder`
-
-Default is `1` (received messages). `2` is for sent messages.
 
 ##### Getting an Entire Thread of Messages
 
-First you need a message. You can get a hold of one by calling the `messages`
-method.
-
-When you have an instance of `OkCupid::Message`, you have access to the
-`threadid` to which the message belongs.
-
-You can read an entire thread of messages by querying a thread by its
-`threadid`.
 
 ```ruby
-api.thread(threadid)
+threadid = api.messages.first.threadid
+messages = api.thread(threadid)
 ```
 
 ###### `threadid`
@@ -81,5 +60,6 @@ The ID of an OkCupid messaage thread.
 ##### Deleting an Entire Thread of Messages
 
 ```ruby
+threadid = api.messages.first.threadid
 api.delete_thread(threadid)
 ```
