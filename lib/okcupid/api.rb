@@ -17,16 +17,33 @@ module OkCupid
     #   messages
     #   # => [...]
     #
-    # Returns an array.
+    # Returns an array of messages.
     def messages(low = 1, infiniscroll = 1, folder = 1)
       response = request(
         :get,
         "/messages?low=#{low}&infiniscroll=#{infiniscroll}&folder=#{folder}"
       )
 
-      doc = Nokogiri::HTML(response)
+      Nokogiri::HTML(response).css('li[id^=message_]').map do |message|
+        OkCupid::Message.new message
+      end
+    end
 
-      doc.css(OkCupid::Message::CSS_SELECTOR).map do |message|
+    # Public: Gets a list of the users messages within a particular thread.
+    #
+    # Examples
+    #
+    #   thread
+    #   # => [...]
+    #
+    # Returns an array of messages.
+    def thread(threadid)
+      response = request(
+        :get,
+        "/messages?readmsg=true&threadid=#{threadid}&folder=1"
+      )
+
+      Nokogiri::HTML(response).css('#thread li[id^=message_]').map do |message|
         OkCupid::Message.new message
       end
     end

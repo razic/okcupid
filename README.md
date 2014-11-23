@@ -41,7 +41,7 @@ api = OkCupid::API.new(username, password)
 ##### Getting Messages
 
 ```ruby
-api.messages(low, infiniscroll, folder)
+messages = api.messages(low, infiniscroll, folder)
 ```
 
 Returns an array of OkCupid::Message instances.
@@ -58,3 +58,19 @@ Default is `1`. Not sure what this is used for.
 ###### `folder`
 
 Default is `1` (received messages). `2` is for sent messages.
+
+##### Getting an Entire Thread of Messages
+
+First you need a message. You can get a hold of one by calling the `messages`
+method.
+
+When you have an instance of `OkCupid::Message`, you have access to the
+`threadid` to which the message belongs.
+
+You can read an entire thread of messages by querying a thread by its
+`threadid`.
+
+```ruby
+threadid = api.messages.first.threadid
+messages = api.thread(threadid)
+```
