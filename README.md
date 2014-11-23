@@ -55,7 +55,7 @@ messages = api.thread(threadid)
 
 ###### `threadid`
 
-The ID of an OkCupid messaage thread.
+The ID of an OkCupid message thread.
 
 ##### Deleting an Entire Thread of Messages
 
