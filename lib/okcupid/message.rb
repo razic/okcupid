@@ -37,17 +37,17 @@ module OkCupid
     #
     # Always available.
     #
-    # Returns a UNIX timestamp.
+    # Returns a UNIX timestamp in integer form.
     def timestamp
       @doc.
         css('.timestamp script').
         first.
         to_s.
         scan(/^.*, (\d+),.*$/).
-        map(&:to_i).
         flatten.
         compact.
         uniq.
+        map(&:to_i).
         first
     rescue
     end
