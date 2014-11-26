@@ -44,6 +44,7 @@ module OkCupid
         first.
         to_s.
         scan(/^.*, (\d+),.*$/).
+        map(&:to_i).
         flatten.
         compact.
         uniq.
@@ -63,6 +64,7 @@ module OkCupid
         css('.message_description').
         first.
         attributes['class'].
+	to_s.
         scan(/from_mobile/).
         flatten.
         compact.
